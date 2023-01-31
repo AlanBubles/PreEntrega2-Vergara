@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { products } from '../Api/data';
+import { getDoc, doc,getDocs } from "firebase/firestore"
+import { productsCollection } from '../fireBaseConfig';
 
 import ItemDetail from '../components/ItemDetail';
 const ItemDetailContainer = () => {
@@ -11,25 +12,24 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         const getProduct = () => {
-            return new Promise((res, rej) => {
-                const productoEncontrado = products.find(
-                    (prod) => prod.id === parseFloat (valor.id)
-                );
-                setTimeout(() => {
-                    res(productoEncontrado);
-                }, 500);
-            });
-        };
+            const referenciaDoc = doc(productsCollection,valor.id)
+            const pedido = getDoc(referenciaDoc)
 
-        getProduct()
-            .then((res) => {
-                setItem(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
-
+            pedido
+                .then((resultado) => {
+                    const producto = resultado.data()
+                    
+                    setItem(producto)
+                    
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+        getProduct();
+           
+    },[]);
+   
     return <ItemDetail item={item} />;
 };
 

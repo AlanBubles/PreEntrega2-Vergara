@@ -22,6 +22,7 @@ function ItemCount ({ stock, initial, onAdd }) {
       <button 
         disabled={count === 0 || stock === 0}
         onClick={() => onAdd(count)}
+        
       >
         Comprar
       </button>

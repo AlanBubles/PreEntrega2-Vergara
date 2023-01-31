@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
+import { contexto } from '../Context/CarProvaiden';
+
 function CartWidget () {
+  const {cantidad}=useContext(contexto)
   return (
     <div>
-      <FaShoppingCart size={'2rem'} color={'purple'} />
-      <span>{5}</span>
+      <FaShoppingCart size={'2rem'} color={'black'} />
+      <span>{cantidad}</span>
     </div>
   );
 };

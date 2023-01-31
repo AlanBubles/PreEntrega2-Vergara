@@ -1,45 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from '../components/ItemList';
 import { useParams } from 'react-router-dom';
-import { products } from '../Api/data';
+
+import { productsCollection } from '../fireBaseConfig';
+import { getDocs,query,where} from 'firebase/firestore';
 
 
 function ItemListContainer() {
   const [productosFetch, setProductosFetch] = useState([]);
   const {categoryName}  = useParams()
-  console.log(categoryName)
+
 
   useEffect(() => {
     const getProducts = () => {
-        return new Promise((res, rej) => {
-            const productosFiltrados = products.filter(
-                (prod) => prod.category === categoryName
-            );
+      const filtro = categoryName === undefined?productsCollection:query(productsCollection,where("category","==",categoryName))
+      console.log("el resultado de filtro es" + "" + filtro)
+      const pedidoPorCategoria = getDocs(filtro)
 
-            const prodListados = categoryName
-                ? productosFiltrados
-                : products;
-            setTimeout(() => {
-                res(prodListados);
-            }, 500);
-        });
+      pedidoPorCategoria
+          .then((resultado) => {
+              const productos = resultado.docs.map((doc) => {
+                  return { id : doc.id , ...doc.data() }
+              })
+              setProductosFetch(productos)
+          })
+          .catch((error) => {
+              console.log(error)
+          })
     };
+     
     getProducts()
-        .then((res) => {
-            setProductosFetch(res)
-        })
-        .catch((error) => {
-            console.log(error);
-        });
 }, [categoryName]);
 
   //console.log("productos:", productos)
 
 
   return (
-    <>
+    <div>
       <ItemList productosFetch={productosFetch} />
-    </>
+    </div>
   );
 };
 
