@@ -1,9 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { contexto } from "../Context/CarProvaiden";
 import { addDoc,serverTimestamp } from "firebase/firestore";
 import { ventasCollection } from "../fireBaseConfig";
+
+
 const Cart = () => {
+ const [email,setEmail]=useState('')
+ const [password,setPassword]=useState('')
+  const sinLogin=<>
+  <form onSubmit={ev =>{ev.preventDefault();}}>
+    <input type="text" name="email" placeholder="Email" autoComplete="off" value={email} onChange={ev=>setEmail(ev.target.value)} >
+    </input>
+    <input type="password" name="password" placeholder="Contraseña"  value={password} onChange={ev=>setPassword(ev.target.value)} >
+    </input>
+    
+    <button type="submit" >Iniciar Sesion</button>
+  </form></>
 
   const handleCompra = () => {
     //addDoc 
@@ -62,7 +75,7 @@ const Cart = () => {
         </ul>
       </div>
 
-     {copiaCar.length ===0?<p>Sin productos en el carrito</p>:<button className="btn" onClick={handleCompra}  style={{background:"black",color:"white"}}>Finalizar Compra</button>}
+     {copiaCar.length ===0?<p>Sin productos en el carrito</p>:sinLogin}
     </div>
   );
 };
