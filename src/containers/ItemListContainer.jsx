@@ -14,7 +14,7 @@ function ItemListContainer() {
   useEffect(() => {
     const getProducts = () => {
       const filtro = categoryName === undefined?productsCollection:query(productsCollection,where("category","==",categoryName))
-      console.log("el resultado de filtro es" + "" + filtro)
+
       const pedidoPorCategoria = getDocs(filtro)
 
       pedidoPorCategoria

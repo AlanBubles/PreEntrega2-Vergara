@@ -8,12 +8,9 @@ const ItemDetail = ({ item }) => {
     const { agregarProducto } = useContext(contexto)
     const [buy, setBuy] = useState(false)
     const onAdd = (cantidad) => {
-        console.log(item.name)
         agregarProducto(item, cantidad)
-        console.log("Esta es la cantidad" + cantidad)
         alert(`Compraste ${cantidad} ${item.name}`);
         setBuy(true)
-        
         item.stock-=cantidad
         
     };

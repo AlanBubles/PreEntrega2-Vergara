@@ -3,20 +3,13 @@ import { Link } from "react-router-dom";
 import { contexto } from "../Context/CarProvaiden";
 import { addDoc,serverTimestamp } from "firebase/firestore";
 import { ventasCollection } from "../fireBaseConfig";
+import Login from "./Login";
 
 
 const Cart = () => {
- const [email,setEmail]=useState('')
- const [password,setPassword]=useState('')
-  const sinLogin=<>
-  <form onSubmit={ev =>{ev.preventDefault();}}>
-    <input type="text" name="email" placeholder="Email" autoComplete="off" value={email} onChange={ev=>setEmail(ev.target.value)} >
-    </input>
-    <input type="password" name="password" placeholder="Contraseña"  value={password} onChange={ev=>setPassword(ev.target.value)} >
-    </input>
-    
-    <button type="submit" >Iniciar Sesion</button>
-  </form></>
+ const [login,setLogin]=useState(false)
+ 
+
 
   const handleCompra = () => {
     //addDoc 
@@ -34,27 +27,19 @@ const Cart = () => {
 
     pedido
         .then((resultado) => {
-            console.log(resultado.id)
-            console.log(resultado)
             alert(`Compra Finalizada`)
             vaciarCarrito();
-            //console.log(resultado.data())
+            
         })
         .catch((error) => {
             console.log(error)
         })
 
 }
-
-
-
-
-
-
   const { eliminarProducto, carrito, vaciarCarrito, total } = useContext(contexto)
-  console.log(carrito)
+ 
   const copiaCar = [...carrito]
-  console.log(copiaCar.length)
+  
   return (
     <div>
       <h1 className="text-center" style={{ background: "black", color: "white", height: "100px" }}>Carrito</h1>
@@ -64,7 +49,7 @@ const Cart = () => {
       <div  style={{width: "48rem"}}>
         <ul className="list-group list-group-flush">
         {copiaCar.map((product) => (
-            <div style={{margin:"20px"}} className="card w-75 mb-3" key={product.id}>
+            <div key={product.name} style={{margin:"20px"}} className="card w-75 mb-3" >
             <div className="card-body">
               <h5 className="card-title">{product.name}</h5>
               <p className="card-text"> Precio Total : $ {product.price * product.total} -{`cantidad ${product.total}`}</p>
@@ -75,7 +60,7 @@ const Cart = () => {
         </ul>
       </div>
 
-     {copiaCar.length ===0?<p>Sin productos en el carrito</p>:sinLogin}
+     {login===false? <div><p>INICIAR SECION</p><Login setLogin={setLogin} /></div>  :copiaCar.length>0?<button onClick={handleCompra} >Finalizar Compra</button>:<p>Sin articulos en el carrito</p>}
     </div>
   );
 };

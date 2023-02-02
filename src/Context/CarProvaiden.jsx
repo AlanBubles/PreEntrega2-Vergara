@@ -19,7 +19,6 @@ function CarProvaider({children}){
         //const copia = carrito 
       
         const test = estaEnCarrito(producto)
-        console.log(test === true ?"Ya estaba en el carrito":"No estaba en el carrito")
         if (test === true){
           const index = copiaCar.findIndex((obj)=> obj.id===producto.id)
           copiaCar[index].total+=cant
@@ -27,11 +26,11 @@ function CarProvaider({children}){
           setCantidad(cantidad + cant)
           setCarrito(copiaCar)
           setTotal(total+totalPrice)
-          console.log(copiaCar);
+          
           
         }
         else{
-            console.log(producto);
+            
             const totalPrice=producto.price * cant
             producto.total+=cant
 
@@ -44,7 +43,7 @@ function CarProvaider({children}){
     
             setTotal(total+totalPrice)
             setCantidad(cantidad+cant)
-            console.log(copiaCar)
+            
         }
     }
 
@@ -66,7 +65,7 @@ function CarProvaider({children}){
             const priceProduct=copiaCar[index].price
             cant-=1;
             producto.stock+=1
-            console.log(copiaCar)
+            
             copiaCar.splice(index,1)
             setCarrito(copiaCar)
             setCantidad(cant)
