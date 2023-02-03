@@ -8,6 +8,7 @@ import Login from "./Login";
 
 const Cart = () => {
  const [login,setLogin]=useState(false)
+const [user,setUser]=useState({})
  
 
 
@@ -15,9 +16,9 @@ const Cart = () => {
     //addDoc 
     const compra = {
         usuario: {
-            nombre: "fulano",
-            email: "fulano@gmail.com",
-            telefono: "123456789"
+            nombre: user.name,
+            email: user.email1,
+            telefono: user.number
         },
         carrito: carrito,
         fecha: serverTimestamp(),
@@ -27,8 +28,9 @@ const Cart = () => {
 
     pedido
         .then((resultado) => {
-            alert(`Compra Finalizada`)
+            alert(`Compra Finalizada su orden es : ${resultado.id}`)
             vaciarCarrito();
+            
             
         })
         .catch((error) => {
@@ -60,7 +62,7 @@ const Cart = () => {
         </ul>
       </div>
 
-     {login===false? <div><p>INICIAR SECION</p><Login setLogin={setLogin} /></div>  :copiaCar.length>0?<button onClick={handleCompra} >Finalizar Compra</button>:<p>Sin articulos en el carrito</p>}
+     {login===false? <div><p>INICIAR SECION</p><Login setLogin={setLogin } setUser={setUser} /></div>  :copiaCar.length>0?<button onClick={handleCompra} >Finalizar Compra</button>:<p>Sin articulos en el carrito</p>}
     </div>
   );
 };
