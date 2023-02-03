@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Ducumentacion de la app
+=======================
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+E-COMMERS
+---------
 
-## Available Scripts
+Esta app de react es un proyecto de practica del curso React.js de Coderhouse, Creamos una pequeña aplicacion que es capas de listar productos,acceder a los detalles de estos ,tener un carrito y finalizar la compra de manera eficiente
 
-In the project directory, you can run:
+### Dependencias
 
-### `npm start`
+Las dependecias utilizadas son
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*   React Doom
+*   React Icons
+*   React Router-doom
+*   Web Vitals
+*   FireBase
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Herramientas utilisadas
 
-### `npm test`
+*   Boostrap
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Como usar la app
 
-### `npm run build`
+La app es facil de usar puedes acceder a mi repositorio original de boostrap
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[](https://github.com/AlanBubles/PreEntrega2-Vergara)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Puedes descargar el codigo en formato zipy modificarlo a tu gusto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### Actualizacion
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+La actualizacion del proyecto incluira E-commers profecional y utilizando mas herramientas de firebase asi como mas productos un filtrado de busqueda y mas caracteristica para el itemdetail

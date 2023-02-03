@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
 import CartWidget from './CartWidget';
+
 function Navbar  () {
   
   return (
@@ -38,11 +39,14 @@ function Navbar  () {
                 Relojes
               </Link>
             </li>
+
+         
            
           </ul>
           <Link to={"/cart"}>
           <CartWidget/>
           </Link>
+          
           
         </div>
       </div>
