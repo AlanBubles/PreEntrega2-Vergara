@@ -23,7 +23,7 @@ function Login({setLogin,setUser}){
         if (formData.email1 === formData.email2){
             alert("sesion Iniciada")
             setUser({name:formData.name,lastname:formData.lastname,number:formData.number,email1:formData.email1,email2:formData.email2})
-            console.log(formData.name);
+            
             setLogin(true)
         }
       };
